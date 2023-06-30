@@ -74,7 +74,7 @@ module OpenSearch
               else
                 __send__ :define_method, name do |*args|
                   # 1. Component has empty @args (ie. no user supplied name or @hash value)
-                  if @args.respond_to?(:to_hash) && @args&.empty?
+                  if @args.respond_to?(:to_hash) && @args && @args.empty?
                     @hash[self.name.to_sym].update name.to_sym => args.first
                   # 2. Component user-supplied name or @hash value passed in @args
                   else

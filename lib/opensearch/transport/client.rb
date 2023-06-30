@@ -173,7 +173,7 @@ module OpenSearch
                          @arguments[:adapter] ||= __auto_detect_adapter
                          @transport_class.new(hosts: @seeds, options: @arguments) do |faraday|
                            faraday.adapter(@arguments[:adapter])
-                           block&.call faraday
+                           block.call faraday if block
                          end
                        else
                          @transport_class.new(hosts: @seeds, options: @arguments)
@@ -214,7 +214,7 @@ module OpenSearch
       end
 
       def add_header(header)
-        headers = @arguments[:transport_options]&.[](:headers) || {}
+        headers = @arguments[:transport_options].to_a[:headers] || {}
         headers.merge!(header)
         @arguments[:transport_options].merge!(
           headers: headers
@@ -317,7 +317,7 @@ module OpenSearch
         end
 
         host_parts[:port] = host_parts[:port].to_i if host_parts[:port]
-        host_parts[:path]&.chomp!('/')
+        host_parts[:path].to_s.chomp!('/')
         host_parts
       end
 

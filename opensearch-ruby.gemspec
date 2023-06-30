@@ -34,11 +34,6 @@ Gem::Specification.new do |s|
   s.summary       = 'Ruby Client for OpenSearch'
   s.homepage      = 'https://github.com/opensearch-project/opensearch-ruby'
   s.license       = 'Apache-2.0'
-  s.description   = <<~DESC
-    OpenSearch Ruby is a Ruby client for OpenSearch. You can use the client to
-    execute OpenSearch API commands, and build OpenSearch queries and aggregations
-    using the included OpenSearch DSL.
-  DESC
   s.metadata = {
     'homepage_uri' => 'https://github.com/opensearch-project/opensearch-ruby',
     'documentation_uri' => 'https://rubydoc.info/gems/opensearch-ruby',
@@ -63,8 +58,5 @@ Gem::Specification.new do |s|
     s.cert_chain  = ['.github/opensearch-rubygems.pem']
   end
 
-  s.required_ruby_version = '>= 2.5'
-
-  s.add_dependency 'faraday', '>= 1.0', '< 3'
   s.add_dependency 'multi_json'
 end

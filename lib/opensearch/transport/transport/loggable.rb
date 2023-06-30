@@ -38,7 +38,7 @@ module OpenSearch
     #
     # @since 7.0.0
     def log_debug(message)
-      logger.debug(message) if logger&.debug?
+      logger.debug(message) if logger
     end
 
     # Log an error message.
@@ -50,7 +50,7 @@ module OpenSearch
     #
     # @since 7.0.0
     def log_error(message)
-      logger.error(message) if logger&.error?
+      logger.error(message) if logger
     end
 
     # Log a fatal message.
@@ -62,7 +62,7 @@ module OpenSearch
     #
     # @since 7.0.0
     def log_fatal(message)
-      logger.fatal(message) if logger&.fatal?
+      logger.fatal(message) if logger
     end
 
     # Log an info message.
@@ -74,7 +74,7 @@ module OpenSearch
     #
     # @since 7.0.0
     def log_info(message)
-      logger.info(message) if logger&.info?
+      logger.info(message) if logger
     end
 
     # Log a warn message.
@@ -86,7 +86,7 @@ module OpenSearch
     #
     # @since 7.0.0
     def log_warn(message)
-      logger.warn(message) if logger&.warn?
+      logger.warn(message) if logger
     end
   end
 end

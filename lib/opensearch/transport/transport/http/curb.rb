@@ -75,11 +75,11 @@ module OpenSearch
             headers_string = connection.connection.header_str
             return nil if headers_string.nil?
 
-            response_headers = headers_string&.split(/\\r\\n|\r\n/)&.reject(&:empty?)
+            response_headers = headers_string.to_s.split(/\\r\\n|\r\n/).reject(&:empty?)
             response_headers.shift # Removes HTTP status string
             processed_header = response_headers.flat_map { |s| s.scan(/^(\S+): (.+)/) }
             headers_hash = processed_header.to_h.transform_keys(&:downcase)
-            if headers_hash['content-type']&.match?(%r{application/json})
+            if headers_hash['content-type'].to_s.match(%r{application/json})
               headers_hash['content-type'] = 'application/json'
             end
             headers_hash

@@ -69,8 +69,8 @@ module OpenSearch
              else
                response.body
              end
-      version = body.dig('version', 'number')
-      distribution = body.dig('version', 'distribution')
+      version = body['version'] && body['version']['number']
+      distribution = body['version'] && body['version']['distribution']
       verify_version_and_distribution(version, distribution)
     end
 

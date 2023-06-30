@@ -255,7 +255,8 @@ module OpenSearch
 
           message = "[!] You are using unsupported parameter [:#{name}]"
 
-          if (source = caller&.last)
+          source = caller.last if caller
+          if (source)
             message += " in `#{source}`"
           end
 
@@ -277,7 +278,8 @@ module OpenSearch
 
       def __report_unsupported_method(name)
         message = "[!] You are using unsupported method [#{name}]"
-        if (source = caller&.last)
+        source = caller.last if caller
+        if (source)
           message += " in `#{source}`"
         end
 

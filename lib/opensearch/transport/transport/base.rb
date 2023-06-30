@@ -298,7 +298,7 @@ module OpenSearch
 
             response = block.call(connection, url)
 
-            connection.healthy! if connection.failures.positive?
+            connection.healthy! if connection.failures > 0
 
             # Raise an exception so we can catch it for `retry_on_status`
             if response.status.to_i >= 300 && @retry_on_status.include?(response.status.to_i)
@@ -369,7 +369,7 @@ module OpenSearch
                     duration
           end
 
-          warnings(response.headers['warning']) if response.headers&.[]('warning')
+          warnings(response.headers['warning']) if response.headers && response.headers['warning']
 
           Response.new response.status, json || response.body, response.headers
         ensure

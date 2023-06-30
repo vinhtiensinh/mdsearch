@@ -68,7 +68,7 @@ module OpenSearch
             url += "#{host[:host]}:#{host[:port]}"
             url += host[:path].to_s if host[:path]
             full_path = full_path(path, params)
-            url += '/' unless full_path.match?(%r{^/})
+            url += '/' unless full_path.match(%r{^/})
             url += full_path
           end
 

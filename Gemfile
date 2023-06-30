@@ -50,19 +50,5 @@ gem 'rubocop-rspec'
 gem 'shoulda-context'
 gem 'simplecov', '~> 0.17', '< 0.18'
 gem 'test-unit', '~> 2'
-gem 'typhoeus', '~> 1.4'
 gem 'webmock', '~> 2.0'
 gem 'yard'
-
-gem 'curb' unless defined? JRUBY_VERSION
-gem 'faraday-patron' unless defined? JRUBY_VERSION
-gem 'patron' unless defined? JRUBY_VERSION
-
-gem 'require-prof' unless defined?(JRUBY_VERSION) || defined?(Rubinius)
-gem 'ruby-prof' unless defined?(JRUBY_VERSION) || defined?(Rubinius)
-
-gem 'manticore' if defined? JRUBY_VERSION
-gem 'pry-nav' if defined? JRUBY_VERSION
-
-gem 'faraday', ENV.fetch('FARADAY_VERSION', nil), require: false if ENV.key?('FARADAY_VERSION')
-gem 'faraday-typhoeus' if !ENV.key?('FARADAY_VERSION') && Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.6')
