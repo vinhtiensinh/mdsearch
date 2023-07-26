@@ -91,7 +91,7 @@ module OpenSearch
                 meta << "#{RbConfig::CONFIG['host_os'].split('_').first[/[a-z]+/i].downcase} #{RbConfig::CONFIG['target_cpu']}"
               end
               meta << client.headers[USER_AGENT_STR].to_s
-              "opensearch-ruby/#{VERSION} (#{meta.join('; ')})"
+              "opensearch-ruby/2.2.0 (#{meta.join('; ')})"
             end
           end
         end
